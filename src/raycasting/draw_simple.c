@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 10:42:35 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/09/26 12:30:20 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/09/28 17:28:44 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,6 @@
 // 	tex_pixel = vars()->tex[i].addr + offset;
 // 	color = *(unsigned int *)tex_pixel;
 // 	return (color);
-// }
-
-// int	select_wall(int side)
-// {
-// 	if (side == 0)
-// 	{
-// 		if (vars()->play->ray_d_x < 0)
-// 			return (2);
-// 		else
-// 			return (3);
-// 	}
-// 	else
-// 	{
-// 		if (vars()->play->ray_d_y < 0)
-// 			return (0);
-// 		else
-// 			return (1);
-// 	}
 // }
 
 // void draw_tex(int x, int side)
@@ -91,8 +73,6 @@
 //     }
 // }
 
-
-
 void	start_draw(int x, int side)
 {
 	int	color;
@@ -109,6 +89,7 @@ void	start_draw(int x, int side)
 		color /= 2;
 	put_stripe(x, color);
 }
+
 
 void	put_stripe(int x, int color)
 {

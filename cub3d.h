@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/07/13 16:08:25 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/09/28 17:32:52 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,10 @@ typedef struct s_player
 
 typedef struct s_graph
 {
-	int	line_height;
-	int	draw_start;
-	int	draw_end;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	double	wallX;
 }	t_graph;
 
 typedef struct s_img
