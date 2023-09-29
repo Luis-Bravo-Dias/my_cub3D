@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/09/28 17:32:52 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:00:14 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <ctype.h>
 # include <limits.h>
 # include <float.h>
+# include <stdint.h>
 
 # include "libft/libft.h"
 # include "get_next_line/get_next_line.h"
@@ -98,7 +99,13 @@ typedef struct s_graph
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
-	double	wallX;
+	int		pitch;
+	int		tex_i;
+	double	wall_x;
+	int		tex_x;
+	int		tex_y;
+	double	step;
+	double	tex_pos;
 }	t_graph;
 
 typedef struct s_img

@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:35:32 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/07/12 17:00:39 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:31:42 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,20 @@ void	init_keys(void)
 	vars()->key->right = 0;
 }
 
+void	init_graph()
+{
+	vars()->graph->line_height = 0;
+	vars()->graph->draw_start = 0;
+	vars()->graph->draw_end = 0;
+	vars()->graph->pitch = 0;
+	vars()->graph->tex_i = -1;
+	vars()->graph->wall_x = 0.0;
+	vars()->graph->tex_x = 0;
+	vars()->graph->tex_y = 0;
+	vars()->graph->step = 0.0;
+	vars()->graph->tex_pos = 0.0;
+}
+
 void	init_vars(void)
 {
 	vars()->play = (t_player *)malloc(sizeof(t_player));
@@ -81,6 +95,7 @@ void	init_vars(void)
  	vars()->play->map_y = 0;
 	vars()->chrono->time = 0;
 	vars()->chrono->old_time = 0;
+	init_graph();
 }
 void init_tex(void)
 {
