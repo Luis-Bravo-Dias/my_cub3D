@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/09/29 17:00:14 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:40:55 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,16 +96,17 @@ typedef struct s_player
 
 typedef struct s_graph
 {
-	int		line_height;
-	int		draw_start;
-	int		draw_end;
-	int		pitch;
-	int		tex_i;
-	double	wall_x;
-	int		tex_x;
-	int		tex_y;
-	double	step;
-	double	tex_pos;
+	int				line_height;
+	int				draw_start;
+	int				draw_end;
+	int				pitch;
+	double			wall_x;
+	int				tex_x;
+	int				tex_y;
+	double			step;
+	double			tex_pos;
+	unsigned int	color;
+	uint32_t	buffer[WIN_HEI][WIN_WID];
 }	t_graph;
 
 typedef struct s_img
@@ -145,6 +146,7 @@ typedef struct s_input
 	char		*we;
 	char		*ea;
 	t_img		tex[4];
+	int			tex_i;
 	char		*f;
 	char		*c;
 	char		**map;
@@ -187,7 +189,7 @@ void	start_draw(int x, int side);
 void	my_mlx_pixel_put(int x, int y, int color);
 
 //draw_textured.c
-
+void start_draw_tex(int x, int color);
 
 //exit.c
 int		msg_error(char *message);

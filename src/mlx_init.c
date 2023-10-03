@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:35:32 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/09/29 15:31:42 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:04:26 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ void	init_graph()
 	vars()->graph->draw_start = 0;
 	vars()->graph->draw_end = 0;
 	vars()->graph->pitch = 0;
-	vars()->graph->tex_i = -1;
 	vars()->graph->wall_x = 0.0;
 	vars()->graph->tex_x = 0;
 	vars()->graph->tex_y = 0;
 	vars()->graph->step = 0.0;
 	vars()->graph->tex_pos = 0.0;
+	vars()->graph->color = 0;
 }
 
 void	init_vars(void)
@@ -78,6 +78,7 @@ void	init_vars(void)
 	vars()->img = (t_img *)malloc(sizeof(t_img));
  	find_player();
 	define_dir_values();
+	vars()->tex_i = -1;
  	vars()->play->cam_x = 0;
  	vars()->play->ray_d_x = 0;
  	vars()->play->ray_d_y = 0;

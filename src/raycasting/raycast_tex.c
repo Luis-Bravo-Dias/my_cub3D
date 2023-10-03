@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 09:59:09 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/09/27 09:59:24 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:10:45 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	raycast_main(void)
 		raycast(x);
 		x++;
 	}
+	
 	mlx_put_image_to_window(vars()->mlx, vars()->window, vars()->img->img, 0,
 		0);
 	mlx_destroy_image(vars()->mlx, vars()->img->img);
