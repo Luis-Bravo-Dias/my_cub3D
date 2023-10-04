@@ -3,16 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   wasd.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:40:43 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/07/13 15:57:44 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:37:28 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-void	move_play(double new_dir_x, double new_dir_y)
+void	move_play(void)
+{
+	vars()->play->pos_x += ((-vars()->play->dir_x * vars()->key->w) \
+			+ (vars()->play->dir_y * vars()->key->a) - (-vars()->play->dir_x * vars()->key->s) \
+			- (vars()->play->dir_y * vars()->key->d)) / (16 * 2);
+	vars()->play->pos_y += ((vars()->play->dir_y * vars()->key->w) \
+			+ (vars()->play->dir_x * vars()->key->a) - (vars()->play->dir_y * vars()->key->s) \
+			- (vars()->play->dir_x * vars()->key->d))  / (16 * 2);
+}
+
+void	horizontal_rot(t_player *p, double angle)
+{
+	double	old_dir;
+	double	old_plane;
+
+	if (angle == 0)
+		return ;
+	// p->angle += angle;
+	// if (p->angle < 0)
+	// 	p->angle = 2 * PI + p->angle;
+	// else if (p->angle > 2 * PI)
+	// 	p->angle -= 2 * PI;
+	old_dir = p->dir_x;
+	old_plane = p->plane_x;
+	p->dir_x = p->dir_x * cos(angle) - p->dir_y * sin(angle);
+	p->dir_y = old_dir * sin(angle) + p->dir_y * cos(angle);
+	p->plane_x = p->plane_x * cos(angle) - p->plane_y * sin(angle);
+	p->plane_y = old_plane * sin(angle) + p->plane_y * cos(angle);
+}
+
+/*void	move_play(double new_dir_x, double new_dir_y)
 {
 	if (vars()->map[(int)(vars()->play->pos_y)][(int)(vars()->play->pos_x + new_dir_x
  			* vars()->chrono->move_speed)] == '0')
@@ -62,7 +92,7 @@ void 	lets_move(int ws, int ad)
 		move_play(new_dir_x, new_dir_y);
 	}
 	
-}
+}*/
 
 // void	move_fwd(void)
 // {

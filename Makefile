@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
+#    By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 12:06:25 by lleiria-          #+#    #+#              #
-#    Updated: 2023/10/03 12:44:36 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/10/04 15:12:31 by fpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -pthread -g#-fsanitize=thread -g
+CFLAGS		= -Wall -Wextra -Werror -g#-fsanitize=thread -g
 #MLXFLAGS	= -lmlx -framework OpenGL -framework AppKit
 RM			= rm -f
 

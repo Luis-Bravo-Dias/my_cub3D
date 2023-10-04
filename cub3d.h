@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/03 16:40:55 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:34:07 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@
 typedef struct s_player
 {
 	double	cam_x;
+	double	angle;
 	double	dir_x;
 	double	dir_y;
 	double	ray_d_x;
@@ -232,5 +233,8 @@ void 	lets_move(int ws, int ad);
 // void	move_lsw(void);
 // void	move_rsw(void);
 void	fps_count(void);
+void	move_play(void);
+void	horizontal_rot(t_player *p, double angle);
+unsigned int	get_tex_col(t_img tex, int x, int y);
 
 #endif

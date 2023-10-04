@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:18:49 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/04 13:47:00 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:10:32 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	raycast_main(void)
 	int	x;
 
 	x = 0;
-	lets_move(vars()->key->w - vars()->key->s, vars()->key->a - vars()->key->d);
+	move_play();
+	horizontal_rot(vars()->play, (vars()->key->left * 0.04) - (vars()->key->right * 0.04));
 	vars()->img->img = mlx_new_image(vars()->mlx, WIN_WID, WIN_HEI);
 	vars()->img->addr = mlx_get_data_addr(vars()->img->img,	&vars()->img->bits_per_pixel, &vars()->img->line_length, &vars()->img->endian);
 	while (x < WIN_WID)
@@ -28,7 +29,6 @@ void	raycast_main(void)
 	mlx_put_image_to_window(vars()->mlx, vars()->window, vars()->img->img, 0,
 		0);
 	mlx_destroy_image(vars()->mlx, vars()->img->img);
-	mlx_loop(vars()->mlx);
 }
 
 void	raycast(int x)
@@ -113,6 +113,6 @@ void	raycast(int x)
 			- vars()->play->pos_y + (1 - vars()->play->step_y) / 2) \
 			/ vars()->play->ray_d_y;
 	fps_count();
-	start_draw(x, side);
+	start_draw_tex(x, side);
 }
 

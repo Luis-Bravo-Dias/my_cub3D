@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   draw_tex.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 17:28:00 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/04 11:18:42 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:40:54 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-int	get_tex_col(t_img tex)
+unsigned int	get_tex_col(t_img tex, int x, int y)
 {
-
-	return((int)*(tex.addr + (vars()->graph->tex_y * tex.line_length + vars()->graph->tex_x \
-		* (tex.bits_per_pixel / 8))));
+	return(*((unsigned int*)((tex.addr) + (y * tex.line_length + (x \
+		* (tex.bits_per_pixel / 8))))));
 }
 
 
@@ -32,7 +31,7 @@ void	tex_coord(int x, int side)
 	if (side == 1 && vars()->play->ray_d_y < 0)
 		vars()->graph->tex_x = vars()->tex[vars()->tex_i].wid
 			- vars()->graph->tex_x - 1;
-	vars()->graph->step = 1.0
+	vars()->graph->step = 1.0 \
 		* vars()->tex[vars()->tex_i].hei / vars()->graph->line_height;
 	vars()->graph->tex_pos = (vars()->graph->draw_start - vars()->graph->pitch
 		- WIN_HEI / 2 + vars()->graph->line_height / 2) * vars()->graph->step;
@@ -42,8 +41,8 @@ void	tex_coord(int x, int side)
 		vars()->graph->tex_y = (int)vars()->graph->tex_pos
 			& (vars()->tex[vars()->tex_i].hei - 1);
 		vars()->graph->tex_pos += vars()->graph->step;
-		vars()->graph->color= get_tex_col(vars()->tex[vars()->tex_i]);
-		// vars()->graph->color = vars()->tex[vars()->tex_i].hei
+		vars()->graph->color = get_tex_col(vars()->tex[vars()->tex_i], vars()->graph->tex_x, vars()->graph->tex_y);
+		//vars()->graph->color = vars()->tex[vars()->tex_i].hei \
 		// 	* vars()->graph->tex_y + vars()->graph->tex_x;
 		if (side == 1)
 			vars()->graph->color = (vars()->graph->color>> 1) & 8355711;

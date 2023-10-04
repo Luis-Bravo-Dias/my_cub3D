@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 22:29:17 by nvideira          #+#    #+#             */
-/*   Updated: 2023/07/13 15:46:15 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/04 13:55:53 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ int	key_press(int keycode)
 	else if (keycode == S_KEY)
 		vars()->key->s = 1;
 	else if (keycode == LEFT_KEY)
-		rotate(1);
-	else if (keycode == RIGHT_KEY)
-		rotate(-1);
+		vars()->key->left = 1;
+	 else if (keycode == RIGHT_KEY)
+	 	vars()->key->right = 1;
 	test_key(keycode);
 	raycast_main();
 	return (0);
@@ -104,7 +104,7 @@ int	key_release(int keycode)
 	test_key(keycode);
 	return (0);
 }
-
+/*
 void	rotate(int dir)
 {
 	double	old_dir_x;
@@ -126,7 +126,7 @@ void	rotate(int dir)
 		* sin(dir * vars()->chrono->rot_speed);
 	vars()->play->plane_y = old_plane_x * sin(dir * vars()->chrono->rot_speed) \
 		+ vars()->play->plane_y * cos(dir * vars()->chrono->rot_speed);
-}
+}*/
 
 void	fps_count(void)
 {
