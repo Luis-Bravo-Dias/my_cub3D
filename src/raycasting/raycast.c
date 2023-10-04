@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:18:49 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/03 16:21:06 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/04 13:47:00 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,6 @@ void	raycast(int x)
 			- vars()->play->pos_y + (1 - vars()->play->step_y) / 2) \
 			/ vars()->play->ray_d_y;
 	fps_count();
-	start_draw_tex(x, side);
+	start_draw(x, side);
 }
 

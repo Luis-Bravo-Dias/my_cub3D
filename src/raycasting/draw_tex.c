@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 17:28:00 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/03 17:05:10 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/04 11:18:42 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	tex_coord(int x, int side)
 		vars()->graph->tex_y = (int)vars()->graph->tex_pos
 			& (vars()->tex[vars()->tex_i].hei - 1);
 		vars()->graph->tex_pos += vars()->graph->step;
-		vars()->graph->color= get_tex_col(vars()->tex[0]);
+		vars()->graph->color= get_tex_col(vars()->tex[vars()->tex_i]);
 		// vars()->graph->color = vars()->tex[vars()->tex_i].hei
 		// 	* vars()->graph->tex_y + vars()->graph->tex_x;
 		if (side == 1)
