@@ -6,21 +6,60 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:40:43 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/04 15:37:28 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/06 16:33:23 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
+
 void	move_play(void)
 {
-	vars()->play->pos_x += ((-vars()->play->dir_x * vars()->key->w) \
+	double	new_dir_x;
+	double	new_dir_y;
+
+	new_dir_x = ((-vars()->play->dir_x * vars()->key->w) \
 			+ (vars()->play->dir_y * vars()->key->a) - (-vars()->play->dir_x * vars()->key->s) \
 			- (vars()->play->dir_y * vars()->key->d)) / (16 * 2);
-	vars()->play->pos_y += ((vars()->play->dir_y * vars()->key->w) \
+	new_dir_y = ((vars()->play->dir_y * vars()->key->w) \
 			+ (vars()->play->dir_x * vars()->key->a) - (vars()->play->dir_y * vars()->key->s) \
 			- (vars()->play->dir_x * vars()->key->d))  / (16 * 2);
+	if (vars()->map[(int)(vars()->play->pos_y)][(int)(vars()->play->pos_x + new_dir_x)] == '0')
+		vars()->play->pos_x += new_dir_x;
+	if (vars()->map[(int)(vars()->play->pos_y + vars()->play->dir_y)][(int)(vars()->play->pos_x)] == '0')
+		vars()->play->pos_y += new_dir_y;
 }
+
+// void	move_play(void)
+// {
+// 	double	new_dir_x;
+// 	double	new_dir_y;
+
+// 	new_dir_x = ((-vars()->play->dir_x * vars()->key->w) \
+// 			+ (vars()->play->dir_y * vars()->key->a) - (-vars()->play->dir_x * vars()->key->s) \
+// 			- (vars()->play->dir_y * vars()->key->d)) / (16 * 2);
+// 	new_dir_y = ((vars()->play->dir_y * vars()->key->w) \
+// 			+ (vars()->play->dir_x * vars()->key->a) - (vars()->play->dir_y * vars()->key->s) \
+// 			- (vars()->play->dir_x * vars()->key->d))  / (16 * 2);
+// 	if (vars()->map[(int)(vars()->play->pos_y)][(int)(vars()->play->pos_x + new_dir_x
+//  			* vars()->chrono->move_speed)] != '0')
+// 		exit(0);
+// 	vars()->play->pos_x += new_dir_x;
+// 	if (vars()->map[(int)(vars()->play->pos_y + vars()->play->dir_y \
+//  			* vars()->chrono->move_speed)][(int)(vars()->play->pos_x)] != '0')
+// 		exit(0);
+// 	vars()->play->pos_y += new_dir_y;
+// }
+
+// void	move_play(void)
+// {
+// 	vars()->play->pos_x += ((-vars()->play->dir_x * vars()->key->w) \
+// 			+ (vars()->play->dir_y * vars()->key->a) - (-vars()->play->dir_x * vars()->key->s) \
+// 			- (vars()->play->dir_y * vars()->key->d)) / (16 * 2);
+// 	vars()->play->pos_y += ((vars()->play->dir_y * vars()->key->w) \
+// 			+ (vars()->play->dir_x * vars()->key->a) - (vars()->play->dir_y * vars()->key->s) \
+// 			- (vars()->play->dir_x * vars()->key->d))  / (16 * 2);
+// }
 
 void	horizontal_rot(t_player *p, double angle)
 {
