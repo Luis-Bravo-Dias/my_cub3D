@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 17:28:00 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/06 16:11:18 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/06 18:36:41 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,12 @@ void	tex_coord(int x, int side)
 		* vars()->tex[vars()->tex_i].hei / vars()->graph->line_height;
 	vars()->graph->tex_pos = (vars()->graph->draw_start - vars()->graph->pitch
 		- WIN_HEI / 2 + vars()->graph->line_height / 2) * vars()->graph->step;
-	y = vars()->graph->draw_start;
+	y = 0;
+	while (y < vars()->graph->draw_start)
+	{
+		my_mlx_pixel_put(x, y, vars()->c);
+		y++;
+	}
 	while (y < vars()->graph->draw_end)
 	{
 		vars()->graph->tex_y = (int)vars()->graph->tex_pos
@@ -48,6 +53,11 @@ void	tex_coord(int x, int side)
 			vars()->graph->color = (vars()->graph->color>> 1) & 8355711;
 		my_mlx_pixel_put(x, y, vars()->graph->color);
 		// vars()->graph->buffer[y][x] = vars()->graph->color;
+		y++;
+	}
+	while (y < WIN_HEI)
+	{
+		my_mlx_pixel_put(x, y, vars()->f);
 		y++;
 	}
 }

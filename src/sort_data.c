@@ -3,21 +3,87 @@
 /*                                                        :::      ::::::::   */
 /*   sort_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:09:34 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/06 14:37:07 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/06 18:27:16 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
+
+
 int	is_not_alright(void)
 {
 	if (vars()->no == NULL || vars()->so == NULL || vars()->we == NULL
-		|| vars()->ea == NULL || vars()->f == NULL || vars()->c == NULL)
+		|| vars()->ea == NULL || vars()->f < 0 || vars()->c < 0)
 		return (msg_error("\e[1;91mError\nwrong number of elements\n\e[0m"));
 	return (0);
+}
+
+int	is_not_color(char **rgb)
+{
+	int i;
+	int	j;
+	
+	i = 0;
+	while (rgb[i])
+	{
+		j = 0;
+		if (!ft_strlen(rgb[i]) || (rgb[i][0] == '0' && ft_strlen(rgb[i]) > 1))
+		{
+			printf("rgb = %s|\n", rgb[i]);
+			printf("strlen(rgb) = %zu\n", ft_strlen(rgb[i]));
+			printf("test1\n");
+			return (1);
+		}
+		while(rgb[i][j])
+		{
+			if (rgb[i][j] < '0' || rgb[i][j] > '9')
+			{
+				printf("test2\n");
+				return (1);
+			}	
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	get_color(char **rgb)
+{
+	int	i;
+	int	r;
+	int g;
+	int b;
+
+	i = 0;
+	while (rgb[i])
+		i++;
+			printf("color\n");
+
+	if (i != 3)
+	{
+		free_matrix(rgb);
+		return (-1);
+	}
+		printf("color\n");
+
+	if (is_not_color(rgb))
+	{
+		free_matrix(rgb);
+		return (-1);
+	}
+	r = ft_atoi(rgb[0]);
+	g = ft_atoi(rgb[1]);
+	b = ft_atoi(rgb[2]);
+	printf("color = r[%d] g[%d] b[%d]\n", r, g, b);
+	if (r > 255 || g > 255 || b > 255)
+		return (-1);
+	return((r << 16) + (g << 8) + b);
+	
 }
 
 void	is_element(char *line)
@@ -30,10 +96,10 @@ void	is_element(char *line)
 		vars()->we = ft_strdup(line + 3);
 	else if (!ft_strncmp(line, "EA ", 3) && vars()->ea == NULL)
 		vars()->ea = ft_strdup(line + 3);
-	else if (!ft_strncmp(line, "F ", 2) && vars()->f == NULL)
-		vars()->f = ft_strdup(line + 2);
-	else if (!ft_strncmp(line, "C ", 2) && vars()->c == NULL)
-		vars()->c = ft_strdup(line + 2);
+	else if (!ft_strncmp(line, "F ", 2) && vars()->f == -2)
+		vars()->f = get_color(ft_split(line + 2, ','));
+	else if (!ft_strncmp(line, "C ", 2) && vars()->c == -2)
+		vars()->c = get_color(ft_split(line + 2, ','));
 }
 
 int	put_elems(char **tmp)
@@ -44,6 +110,7 @@ int	put_elems(char **tmp)
 	vars()->lines = matrix_size(tmp) - 6;
 	while (++i <= 5)
 		is_element(tmp[i]);
+	printf("ceiling = %d, floor = %d\n", vars()->c, vars()->f);
 	if (is_not_alright())
 	{
 		free_matrix(tmp);
@@ -82,6 +149,10 @@ int	sort_data(char *file)
 		if (map_line[0] == 'N' || map_line[0] == 'S' || map_line[0] == 'W' || map_line[0] == 'E')
 			if (check_image(map_line))
 				return (msg_error(strerror(errno)));
+		if (map_line[0] == 'F' || map_line[0] == 'C')
+		{
+			
+		}
 		if (map_line[0] != '\n' && vars()->lines > 0)
 		{
 			tmp[++i] = ft_strdup_cub(map_line);

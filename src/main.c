@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:12:18 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/04 15:29:26 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/06 17:52:56 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	liberate(void)
 	free_array(vars()->so);
 	free_array(vars()->we);
 	free_array(vars()->ea);
-	free_array(vars()->f);
-	free_array(vars()->c);
+	// free_array(vars()->f);
+	// free_array(vars()->c);
 	free_matrix(vars()->map);
 }
 
@@ -34,6 +34,7 @@ int	main(int ac, char **av)
 {
 	if (ac != 2)
 		printf("\e[1;91mError\nwrong number of arguments\n\e[0m");
+	init_color();
 	if (sort_data(av[1]) || check_map())
 	{
 		liberate();

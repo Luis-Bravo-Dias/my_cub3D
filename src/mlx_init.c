@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:35:32 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/04 14:43:46 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/06 17:49:37 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+void init_color(void)
+{
+	vars()->c = -2;
+	vars()->f = -2;
+	vars()->no = NULL;
+	vars()->so = NULL;
+	vars()->ea = NULL;
+	vars()->we = NULL;
+}
 
 void	define_dir_values(void)
 {
