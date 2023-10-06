@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:09:34 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/22 14:34:57 by ubuntu           ###   ########.fr       */
+/*   Updated: 2023/10/06 14:37:07 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,8 @@ int	sort_data(char *file)
 	while (map_line)
 	{
 		if (map_line[0] == 'N' || map_line[0] == 'S' || map_line[0] == 'W' || map_line[0] == 'E')
-		{
-			tmp[0] = ft_strrchr(map_line, '.');
-			if (!ft_strnstr(tmp[0], ".xpm", 4))
-				free(map_line);
+			if (check_image(map_line))
 				return (msg_error(strerror(errno)));
-		}
 		if (map_line[0] != '\n' && vars()->lines > 0)
 		{
 			tmp[++i] = ft_strdup_cub(map_line);
