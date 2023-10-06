@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_tex.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 17:28:00 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/04 15:40:54 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/06 16:11:18 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	tex_coord(int x, int side)
 		* vars()->tex[vars()->tex_i].hei / vars()->graph->line_height;
 	vars()->graph->tex_pos = (vars()->graph->draw_start - vars()->graph->pitch
 		- WIN_HEI / 2 + vars()->graph->line_height / 2) * vars()->graph->step;
-	y = 0;
+	y = vars()->graph->draw_start;
 	while (y < vars()->graph->draw_end)
 	{
 		vars()->graph->tex_y = (int)vars()->graph->tex_pos
