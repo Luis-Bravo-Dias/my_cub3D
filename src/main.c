@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:12:18 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/06 17:52:56 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:18:52 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@ void	liberate(void)
 	free_array(vars()->so);
 	free_array(vars()->we);
 	free_array(vars()->ea);
-	// free_array(vars()->f);
-	// free_array(vars()->c);
 	free_matrix(vars()->map);
 }
 
 int	main(int ac, char **av)
 {
 	if (ac != 2)
+	{
 		printf("\e[1;91mError\nwrong number of arguments\n\e[0m");
+		return (0);
+	}
 	init_color();
 	if (sort_data(av[1]) || check_map())
 	{
@@ -47,6 +48,6 @@ int	main(int ac, char **av)
 	mlx_hook(vars()->window, 3, 1L << 1, key_release, NULL);
 	raycast_main();
 	mlx_loop(vars()->mlx);
-	liberate();
+	//liberate();
 	return (0);
 }

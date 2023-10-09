@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:41:48 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/04/26 09:57:31 by ubuntu           ###   ########.fr       */
+/*   Updated: 2023/10/09 15:05:41 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	abnormalities(char **map)
 	int	j;
 
 	j = 0;
-	while (map[j])
+	while (map && map[j])
 	{
 		i = 0;
 		while (map[j][i])

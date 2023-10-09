@@ -6,7 +6,11 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:35:32 by ubuntu            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/10/06 17:49:37 by lleiria-         ###   ########.fr       */
+=======
+/*   Updated: 2023/10/09 14:38:11 by fpereira         ###   ########.fr       */
+>>>>>>> fpereira-test
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +89,7 @@ void	init_vars(void)
 	vars()->play = (t_player *)malloc(sizeof(t_player));
 	vars()->chrono = (t_time *)malloc(sizeof(t_time));
 	vars()->graph = (t_graph *)malloc(sizeof(t_graph));
-	vars()->img = (t_img *)malloc(sizeof(t_img));
+	//vars()->img = (t_img *)malloc(sizeof(t_img));
  	find_player();
 	define_dir_values();
 	vars()->tex_i = -1;
