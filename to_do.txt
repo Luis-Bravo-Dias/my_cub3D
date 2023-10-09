@@ -1,2 +1,3 @@
-currently doing -> create my_mlx_pixel_put function
-teste
+ordem dos elementos irrelevantes
+elementos repetidos
+nova linha vazia no meio do mapa

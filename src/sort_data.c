@@ -6,7 +6,7 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:09:34 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/09 15:19:00 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/09 16:07:20 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,12 @@ int	put_elems(char **tmp)
 	int	i;
 
 	i = -1;
+	//printf("Tmp: %s\n", tmp[0]);
+	if (tmp && !tmp[0])
+	{
+		free(tmp);
+		return (msg_error(strerror(errno)));
+	}
 	vars()->lines = matrix_size(tmp) - 6;
 	while (++i <= 5)
 		is_element(tmp[i]);
@@ -135,17 +141,22 @@ void	initialize_matrix(char **tmp)
 	int	i;
 
 	i = -1;
+	if (vars()->lines == 0)
+		tmp[0] = NULL;
 	while (++i < vars()->lines)
 		tmp[i] = NULL;
+	tmp = NULL;
 }
 
 int	sort_data(char *file)
 {
 	int		fd;
 	int		i;
+	int		first_four;
 	char	**tmp;
 	char	*map_line;
 
+	first_four = 0;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (msg_error(strerror(errno)));
@@ -156,6 +167,14 @@ int	sort_data(char *file)
 	map_line = get_next_line(fd);
 	while (map_line)
 	{
+		if (first_four <= 3)
+			if (map_line[0] != 'N' && map_line[0] != 'S' && map_line[0] != 'W' && map_line[0] != 'E')
+			{
+				if (map_line)
+					free(map_line);
+				free_matrix(tmp);
+				return (msg_error(strerror(errno)));
+			}
 		if (map_line[0] == 'N' || map_line[0] == 'S' || map_line[0] == 'W' || map_line[0] == 'E')
 			if (check_image(map_line))
 			{
@@ -171,6 +190,7 @@ int	sort_data(char *file)
 		}
 		free(map_line);
 		map_line = get_next_line(fd);
+		first_four++;
 	}
 	return (put_elems(tmp));
 }
