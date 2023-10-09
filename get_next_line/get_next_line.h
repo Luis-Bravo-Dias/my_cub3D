@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:46:54 by lleiria-          #+#    #+#             */
-/*   Updated: 2022/07/27 15:48:29 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:29:07 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# define BUFFER_SIZE 42
+# define BUFFER_SIZE 1
 
 char	*get_next_line(int fd);
 char	*ft_strchr2(const char *str, int c);

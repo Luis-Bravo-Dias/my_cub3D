@@ -1,10 +1,10 @@
-NO textures/xpm/Abstract_128x128-17.xpm
+NO textures/xpm/Abstract_128x128-01.xpm
 SO textures/xpm/Abstract_128x128-12.xpm
-WE textures/xpm/Abstract_128x128-12.xpm
+WE textures/xpm/Abstract_128x128-05.xpm
 EA textures/xpm/Abstract_128x128-17.xpm
 
-F 220,100,0
-C 225,30,0
+C 250,250,250
+F 200,150,50
 
         1111111111111111111111111
         1000000000110000000000001

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/06 12:50:28 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/06 17:54:08 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,8 +148,8 @@ typedef struct s_input
 	char		*ea;
 	t_img		tex[4];
 	int			tex_i;
-	char		*f;
-	char		*c;
+	int			f;
+	int			c;
 	char		**map;
 	int			lines;
 	void		*mlx;
@@ -221,6 +221,7 @@ int		file_lines(char *file);
 void    init_cub(void);
 void    init_vars(void);
 void	define_dir_values(void);
+void	init_color(void);
 
 //keys.c
 int		ft_close(void);

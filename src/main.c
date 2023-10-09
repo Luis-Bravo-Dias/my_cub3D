@@ -6,7 +6,7 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:12:18 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/04 15:29:26 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:20:14 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	liberate(void)
 	free_array(vars()->so);
 	free_array(vars()->we);
 	free_array(vars()->ea);
-	free_array(vars()->f);
-	free_array(vars()->c);
 	free_matrix(vars()->map);
 }
 
@@ -34,6 +32,7 @@ int	main(int ac, char **av)
 {
 	if (ac != 2)
 		printf("\e[1;91mError\nwrong number of arguments\n\e[0m");
+	init_color();
 	if (sort_data(av[1]) || check_map())
 	{
 		liberate();
@@ -46,6 +45,6 @@ int	main(int ac, char **av)
 	mlx_hook(vars()->window, 3, 1L << 1, key_release, NULL);
 	raycast_main();
 	mlx_loop(vars()->mlx);
-	liberate();
+	//liberate();
 	return (0);
 }

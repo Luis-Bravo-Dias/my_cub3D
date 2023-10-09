@@ -6,11 +6,21 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:35:32 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/04 14:43:46 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/09 14:38:11 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+void init_color(void)
+{
+	vars()->c = -2;
+	vars()->f = -2;
+	vars()->no = NULL;
+	vars()->so = NULL;
+	vars()->ea = NULL;
+	vars()->we = NULL;
+}
 
 void	define_dir_values(void)
 {
@@ -75,7 +85,7 @@ void	init_vars(void)
 	vars()->play = (t_player *)malloc(sizeof(t_player));
 	vars()->chrono = (t_time *)malloc(sizeof(t_time));
 	vars()->graph = (t_graph *)malloc(sizeof(t_graph));
-	vars()->img = (t_img *)malloc(sizeof(t_img));
+	//vars()->img = (t_img *)malloc(sizeof(t_img));
  	find_player();
 	define_dir_values();
 	vars()->tex_i = -1;

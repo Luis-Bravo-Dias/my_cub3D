@@ -6,18 +6,11 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 22:29:17 by nvideira          #+#    #+#             */
-/*   Updated: 2023/10/04 13:55:53 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/09 14:31:32 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
-
-int	ft_close(void)
-{
-	mlx_destroy_window(vars()->mlx, vars()->window);
-	exit(0);
-	return (0);
-}
 
 void	test_key(int keycode)
 {

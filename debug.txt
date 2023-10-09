@@ -1,0 +1,406 @@
+==444111== Memcheck, a memory error detector
+==444111== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==444111== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==444111== Command: ./cub3D maps/invalid_map
+==444111== Parent PID: 429872
+==444111== 
+==444111== Conditional jump or move depends on uninitialised value(s)
+==444111==    at 0x408793: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Syscall param read(buf) points to unaddressable byte(s)
+==444111==    at 0x4C2DFD2: read (read.c:26)
+==444111==    by 0x4087B6: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d71040 is 0 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid write of size 1
+==444111==    at 0x40858C: feed_storage (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4087D1: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d71041 is 1 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid read of size 1
+==444111==    at 0x408872: ft_strchr2 (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4085A2: feed_storage (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4087D1: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d71041 is 1 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid read of size 1
+==444111==    at 0x40887D: ft_strchr2 (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4085A2: feed_storage (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4087D1: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d71041 is 1 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid read of size 1
+==444111==    at 0x4088C8: ft_strlen2 (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x408A58: ft_strjoin2 (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4085F4: feed_storage (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4087D1: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d71041 is 1 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid free() / delete / delete[] / realloc()
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d71040 is 0 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid read of size 1
+==444111==    at 0x4088C8: ft_strlen2 (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40895A: ft_strdup2 (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4084F4: valid_buffer (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4085D5: feed_storage (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4087D1: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d71041 is 1 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid free() / delete / delete[] / realloc()
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087EF: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d71040 is 0 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x40599A: file_lines (parsing_utils.c:58)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Conditional jump or move depends on uninitialised value(s)
+==444111==    at 0x408793: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Syscall param read(buf) points to unaddressable byte(s)
+==444111==    at 0x4C2DFD2: read (read.c:26)
+==444111==    by 0x4087B6: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d71b40 is 0 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid write of size 1
+==444111==    at 0x40858C: feed_storage (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4087D1: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d71b41 is 1 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid read of size 1
+==444111==    at 0x408872: ft_strchr2 (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4085A2: feed_storage (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4087D1: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d71b41 is 1 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid read of size 1
+==444111==    at 0x40887D: ft_strchr2 (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4085A2: feed_storage (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4087D1: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d71b41 is 1 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid free() / delete / delete[] / realloc()
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d71b40 is 0 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid free() / delete / delete[] / realloc()
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087EF: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d71b40 is 0 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4059C1: file_lines (parsing_utils.c:63)
+==444111==    by 0x402EE6: sort_data (sort_data.c:152)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Conditional jump or move depends on uninitialised value(s)
+==444111==    at 0x408793: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Syscall param read(buf) points to unaddressable byte(s)
+==444111==    at 0x4C2DFD2: read (read.c:26)
+==444111==    by 0x4087B6: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d7db70 is 0 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid write of size 1
+==444111==    at 0x40858C: feed_storage (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4087D1: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d7db71 is 1 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid read of size 1
+==444111==    at 0x408872: ft_strchr2 (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4085A2: feed_storage (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4087D1: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d7db71 is 1 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid read of size 1
+==444111==    at 0x40887D: ft_strchr2 (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4085A2: feed_storage (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x4087D1: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d7db71 is 1 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid free() / delete / delete[] / realloc()
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d7db70 is 0 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== Invalid free() / delete / delete[] / realloc()
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087EF: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Address 0x4d7db70 is 0 bytes inside a block of size 2 free'd
+==444111==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x4087A0: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111==  Block was alloc'd at
+==444111==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==444111==    by 0x408769: get_next_line (in /nfs/homes/fpereira/Desktop/cub3D_collab/cub3D)
+==444111==    by 0x402F44: sort_data (sort_data.c:156)
+==444111==    by 0x4025F6: main (main.c:36)
+==444111== 
+==444111== 
+==444111== HEAP SUMMARY:
+==444111==     in use at exit: 0 bytes in 0 blocks
+==444111==   total heap usage: 624 allocs, 1,201 frees, 9,962 bytes allocated
+==444111== 
+==444111== All heap blocks were freed -- no leaks are possible
+==444111== 
+==444111== Use --track-origins=yes to see where uninitialised values come from
+==444111== For lists of detected and suppressed errors, rerun with: -s
+==444111== ERROR SUMMARY: 2886 errors from 23 contexts (suppressed: 0 from 0)
