@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:09:34 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/09 16:19:15 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:27:48 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,14 +167,15 @@ int	sort_data(char *file)
 	map_line = get_next_line(fd);
 	while (map_line)
 	{
-		if (first_four <= 3)
-			if (map_line[0] != 'N' && map_line[0] != 'S' && map_line[0] != 'W' && map_line[0] != 'E')
-			{
-				if (map_line)
-					free(map_line);
-				free_matrix(tmp);
-				return (msg_error(strerror(errno)));
-			}
+		// if (first_four <= 3)
+		// 	if (map_line[0] != 'N' && map_line[0] != 'S' && map_line[0] != 'W' && map_line[0] != 'E'
+		// 		&& map_line[0] != 'F' && map_line[0] != 'C')
+		// 	{
+		// 		if (map_line)
+		// 			free(map_line);
+		// 		free_matrix(tmp);
+		// 		return (msg_error(strerror(errno)));
+		// 	}
 		if (map_line[0] == 'N' || map_line[0] == 'S' || map_line[0] == 'W' || map_line[0] == 'E')
 			if (check_image(map_line))
 			{
