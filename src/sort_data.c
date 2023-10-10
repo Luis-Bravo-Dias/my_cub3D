@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:09:34 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/10 12:27:48 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/10 14:12:34 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,22 +141,23 @@ void	initialize_matrix(char **tmp)
 	int	i;
 
 	i = -1;
+	printf("Lines: %d\n", vars()->lines);
 	if (vars()->lines == 0)
 		tmp[0] = NULL;
 	while (++i < vars()->lines)
 		tmp[i] = NULL;
-	tmp = NULL;
+	//tmp = NULL;
 }
 
 int	sort_data(char *file)
 {
 	int		fd;
 	int		i;
-	int		first_four;
+	int		six_elems;
 	char	**tmp;
 	char	*map_line;
 
-	first_four = 0;
+	six_elems = 0;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (msg_error(strerror(errno)));
@@ -167,15 +168,10 @@ int	sort_data(char *file)
 	map_line = get_next_line(fd);
 	while (map_line)
 	{
-		// if (first_four <= 3)
-		// 	if (map_line[0] != 'N' && map_line[0] != 'S' && map_line[0] != 'W' && map_line[0] != 'E'
-		// 		&& map_line[0] != 'F' && map_line[0] != 'C')
-		// 	{
-		// 		if (map_line)
-		// 			free(map_line);
-		// 		free_matrix(tmp);
-		// 		return (msg_error(strerror(errno)));
-		// 	}
+		if (map_line[0] != '1' && map_line[0] != '0' && map_line[0] != '\n')
+			if (map_line[0] == 'N' || map_line[0] == 'S' || map_line[0] == 'W' || map_line[0] == 'E'
+				|| map_line[0] == 'F' || map_line[0] == 'C')
+				six_elems++;
 		if (map_line[0] == 'N' || map_line[0] == 'S' || map_line[0] == 'W' || map_line[0] == 'E')
 			if (check_image(map_line))
 			{
@@ -191,7 +187,14 @@ int	sort_data(char *file)
 		}
 		free(map_line);
 		map_line = get_next_line(fd);
-		first_four++;
+	}
+	if (six_elems != 6)
+	{
+		if (map_line)
+			free(map_line);
+		if (tmp)
+			free_matrix(tmp);
+		return (msg_error(strerror(errno)));
 	}
 	return (put_elems(tmp));
 }

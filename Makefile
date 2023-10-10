@@ -6,12 +6,12 @@
 #    By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 12:06:25 by lleiria-          #+#    #+#              #
-#    Updated: 2023/10/06 12:49:57 by fpereira         ###   ########.fr        #
+#    Updated: 2023/10/10 14:03:36 by fpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g#-fsanitize=thread -g
+CFLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
 #MLXFLAGS	= -lmlx -framework OpenGL -framework AppKit
 RM			= rm -f
 
