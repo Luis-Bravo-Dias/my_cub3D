@@ -6,7 +6,7 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:12:18 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/11 15:22:14 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:47:31 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,33 @@ void	liberate(void)
 	free_matrix(vars()->map);
 }
 
+int	rev_strstr_argv(char *str, char *find)
+{
+	int	i;
+	int	j;
+
+	i = ft_strlen(str);
+	j = ft_strlen(find);
+	while (i >= 0 && j >= 0)
+	{
+		if (str[i] != find[j])
+			return (1);
+		i--;
+		j--;
+	}
+	return (0);
+}
+
 int	main(int ac, char **av)
 {
 	if (ac != 2)
 	{
 		printf("\e[1;91mError\nwrong number of arguments\n\e[0m");
+		return (0);
+	}
+	if (rev_strstr_argv(av[1], ".cub"))
+	{
+		printf("\e[1;91mError\nInvalid extension for map. Use \".cub\".\n\e[0m");
 		return (0);
 	}
 	init_color();

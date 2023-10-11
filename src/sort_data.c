@@ -6,7 +6,7 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:09:34 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/11 17:19:57 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:49:20 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int	put_elems(char **tmp)
 	if (tmp && !tmp[0])
 	{
 		free(tmp);
-		return (msg_error(strerror(errno)));
+		return (msg_error("\e[1;91mError\nEmpty file.\n\e[0m"));
 	}
 	vars()->lines = matrix_size(tmp) - 6;
 	while (++i <= 5)
@@ -125,7 +125,7 @@ int	put_elems(char **tmp)
 	}
 	vars()->map = malloc(sizeof(char **) * (vars()->lines + 1));
 	if (!vars()->map)
-		return (msg_error(strerror(errno)));
+		return (msg_error("\e[1;91mError\nCould not allocate map.\n\e[0m"));
 	vars()->map[vars()->lines] = NULL;
 	while (tmp[i] && i < vars()->lines + 6)
 	{
@@ -163,7 +163,7 @@ int	sort_data(char *file)
 	map_flag = 0;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		return (msg_error(strerror(errno)));
+		return (msg_error("\e[1;91mError\nCould not open file.\n\e[0m"));
 	vars()->lines = file_lines(file);
 	tmp = malloc(sizeof(char *) * (vars()->lines + 1));
 	initialize_matrix(tmp);
@@ -183,7 +183,7 @@ int	sort_data(char *file)
 				if (map_line)
 					free(map_line);
 				free_matrix(tmp);
-				return (msg_error(strerror(errno)));
+				return (msg_error("\e[1;91mError\nInvalid images.\n\e[0m"));
 			}
 		if (map_flag == 1 && vars()->lines > 0)
 		{
@@ -204,7 +204,7 @@ int	sort_data(char *file)
 			free(map_line);
 		if (tmp)
 			free_matrix(tmp);
-		return (msg_error(strerror(errno)));
+		return (msg_error("\e[1;91mError\nWrong number of elements\n\e[0m"));
 	}
 	return (put_elems(tmp));
 }

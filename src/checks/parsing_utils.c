@@ -6,7 +6,7 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:44:45 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/11 17:25:51 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:49:33 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	file_lines(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 	{
-		msg_error(strerror(errno));
+		msg_error("\e[1;91mError\nCould not open file.\n\e[0m");
 		exit(2);
 	}
 	line = get_next_line(fd);
