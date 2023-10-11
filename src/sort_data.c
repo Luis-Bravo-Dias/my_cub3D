@@ -6,7 +6,7 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:09:34 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/10 14:12:34 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:50:31 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ void	initialize_matrix(char **tmp)
 	printf("Lines: %d\n", vars()->lines);
 	if (vars()->lines == 0)
 		tmp[0] = NULL;
-	while (++i < vars()->lines)
+	while (++i <= vars()->lines)
 		tmp[i] = NULL;
 	//tmp = NULL;
 }

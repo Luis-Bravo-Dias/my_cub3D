@@ -6,7 +6,7 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:41:48 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/09 15:05:41 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:37:46 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	abnormalities(char **map)
 	while (map && map[j])
 	{
 		i = 0;
+		if (map[j][0] == '\0')
+			return (1);
 		while (map[j][i])
 		{
 			if (map[j][i] != '1' && map[j][i] != '0' && map[j][i] != 'N'
