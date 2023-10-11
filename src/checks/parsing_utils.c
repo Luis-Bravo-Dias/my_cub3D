@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:44:45 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/03/14 11:46:24 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:25:51 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,32 @@ int	matrix_size(char **matrix)
 	return (counter);
 }
 
-char	*ft_strdup_cub(const char *s1)
+char	*ft_strdup_cub(const char *s1, int map_flag)
 {
 	char	*p;
 	size_t	n;
 	size_t	slen;
 
 	slen = ft_strlen(s1);
+	//printf("string: %s\nlen: %zu\n\n\n", s1, slen);
 	p = (char *)malloc(sizeof(char) * (slen + 1));
 	n = 0;
 	if (p == NULL)
 		return (NULL);
-	while (s1[n] != '\0' && s1[n] != '\n')
-	{
-		p[n] = s1[n];
-		n++;
-	}
+	if (map_flag == 0)
+		while (s1[n] != '\0' && s1[n] != '\n')
+		{
+			p[n] = s1[n];
+			n++;
+		}
+	else if (map_flag == 1)
+		while (s1[n] != '\0')
+		{
+			p[n] = s1[n];
+			n++;
+		}
 	p[n] = '\0';
+	printf("string to return: %s", p);
 	return (p);
 }
 

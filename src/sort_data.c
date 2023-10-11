@@ -6,7 +6,7 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:09:34 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/11 15:50:31 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:19:57 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ int	put_elems(char **tmp)
 	vars()->map[vars()->lines] = NULL;
 	while (tmp[i] && i < vars()->lines + 6)
 	{
+		printf("Line: %s\n", tmp[i]);
 		vars()->map[i - 6] = ft_strdup(tmp[i]);
 		i++;
 	}
@@ -154,10 +155,12 @@ int	sort_data(char *file)
 	int		fd;
 	int		i;
 	int		six_elems;
+	int		map_flag;
 	char	**tmp;
 	char	*map_line;
 
 	six_elems = 0;
+	map_flag = 0;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (msg_error(strerror(errno)));
@@ -168,6 +171,8 @@ int	sort_data(char *file)
 	map_line = get_next_line(fd);
 	while (map_line)
 	{
+		if (map_line[0] && (map_line[0] == 1 || map_line[0] == 0 || map_line[0] == ' ' || map_line[0] == '\t'))
+			map_flag = 1;
 		if (map_line[0] != '1' && map_line[0] != '0' && map_line[0] != '\n')
 			if (map_line[0] == 'N' || map_line[0] == 'S' || map_line[0] == 'W' || map_line[0] == 'E'
 				|| map_line[0] == 'F' || map_line[0] == 'C')
@@ -180,9 +185,14 @@ int	sort_data(char *file)
 				free_matrix(tmp);
 				return (msg_error(strerror(errno)));
 			}
-		if (map_line[0] != '\n' && vars()->lines > 0)
+		if (map_flag == 1 && vars()->lines > 0)
 		{
-			tmp[++i] = ft_strdup_cub(map_line);
+			tmp[++i] = ft_strdup_cub(map_line, map_flag);
+			vars()->lines--;
+		}
+		else if (map_line[0] != '\n' && vars()->lines > 0)
+		{
+			tmp[++i] = ft_strdup_cub(map_line, map_flag);
 			vars()->lines--;
 		}
 		free(map_line);

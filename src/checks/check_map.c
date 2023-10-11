@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 11:05:01 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/05/02 15:09:15 by ubuntu           ###   ########.fr       */
+/*   Updated: 2023/10/11 17:27:49 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	check_borders(char **map, int y, int x)
 
 int	check_inside(char **map, int y, int x)
 {
+	if (map[y][0] == '\n')
+		return (1);
 	if (x <= 1 || x >= (int)ft_strlen(map[y]) - 2)
 		return (0);
 	if (validate(map[y][x - 1], 0) || validate(map[y][x + 1], 0)
@@ -49,6 +51,8 @@ int	middle_lines(char **map, int line)
 	i = -1;
 	while (map[line][++i])
 	{
+		if (i == 0 && map[line][i] == '\n')
+			return (1);
 		if (map[line][i] == '0' || map[line][i] == 'N' || map[line][i] == 'S'
 			|| map[line][i] == 'E' || map[line][i] == 'W')
 		{

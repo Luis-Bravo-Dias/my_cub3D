@@ -6,7 +6,7 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/10 14:12:55 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:19:47 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,7 +214,7 @@ int		is_not_alright(void);
 
 //parsing_utils.c
 int		matrix_size(char **matrix);
-char	*ft_strdup_cub(const char *s1);
+char	*ft_strdup_cub(const char *s1, int map_flag);
 int		file_lines(char *file);
 
 //mlx_init.c
