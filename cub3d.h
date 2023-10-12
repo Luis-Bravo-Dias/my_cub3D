@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/11 17:19:47 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:36:08 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,6 @@ typedef struct s_graph
 	double			step;
 	double			tex_pos;
 	unsigned int	color;
-	uint32_t	buffer[WIN_HEI][WIN_WID];
 }	t_graph;
 
 typedef struct s_img
@@ -134,9 +133,9 @@ typedef struct s_key
 {
 	int	d;
 	int	a;
-	int w;
+	int	w;
 	int	s;
-	int left;
+	int	left;
 	int	right;
 }	t_key;
 
@@ -167,7 +166,6 @@ typedef struct s_input
 	t_graph		*graph;
 	t_key		*key;
 }	t_input;
-
 /* ____                                               __      
   /\  _`\                                            /\ \__   
   \ \ \L\ \     __     __  __    ___     __      ____\ \ ,_\  
@@ -178,66 +176,76 @@ typedef struct s_input
                         /\___/                             
                           \/__/                              */
 
-t_input	*vars(void);
-
+t_input			*vars(void);
 //raycast.c
-void    raycast_main(void);
-void    raycast(int x);
+void			raycast_main(void);
+void			raycast(int x);
 
 //draw_simple.c
-void	put_stripe(int x, int color);
-void	start_draw(int x, int side);
-void	my_mlx_pixel_put(int x, int y, int color);
+void			put_stripe(int x, int color);
+void			start_draw(int x, int side);
+void			my_mlx_pixel_put(int x, int y, int color);
 
 //draw_textured.c
-void start_draw_tex(int x, int color);
+void			start_draw_tex(int x, int color);
 
 //exit.c
-int		msg_error(char *message);
-void	free_matrix(char **matrix);
-void	free_array(char *str);
+int				msg_error(char *message);
+void			free_matrix(char **matrix);
+void			free_array(char *str);
 
 //check_map.c
-int		check_map(void);
+int				check_map(void);
 
 //check_map_utils.c
-int		abnormalities(char **map);
-int		extreme_lines(char **map, int line);
-int		validate(char x, int is_wall);
-int		not_solo(void);
-void	check_file(char *file);
+int				abnormalities(char **map);
+int				extreme_lines(char **map, int line);
+int				validate(char x, int is_wall);
+int				not_solo(void);
+void			check_file(char *file);
 
 //sort_data.c
-int		sort_data(char *file);
-void	find_player(void);
-int		is_not_alright(void);
+int				sort_data(char *file);
+void			find_player(void);
+int				is_not_alright(void);
+void			initialize_matrix(char **tmp);
+int				is_not_alright(void);
+
+//get_color.c
+int	get_color(char **rgb);
 
 //parsing_utils.c
-int		matrix_size(char **matrix);
-char	*ft_strdup_cub(const char *s1, int map_flag);
-int		file_lines(char *file);
+int				matrix_size(char **matrix);
+char			*ft_strdup_cub(const char *s1, int map_flag);
+int				file_lines(char *file);
+
+//init_play.c
+void	define_dir_values(void);
+
+//init_vars.c
+void			init_vars(void);
+void			init_color(void);
+void			init_keys(void);
 
 //mlx_init.c
-void    init_cub(void);
-void    init_vars(void);
-void	define_dir_values(void);
-void	init_color(void);
+void			init_cub(void);
+void			define_dir_values(void);
 
 //keys.c
-int		ft_close(void);
-int		key_press(int keycode);
-int		key_release(int keycode);
-void	rotate(int dir);
-void 	lets_move(int ws, int ad);
+int				ft_close(void);
+int				key_press(int keycode);
+int				key_release(int keycode);
+// void			rotate(int dir);
+// void 			lets_move(int ws, int ad);
 // void	move_fwd(void);
 // void	move_bwd(void);
 // void	move_lsw(void);
 // void	move_rsw(void);
-void	fps_count(void);
-void	move_play(void);
-void	horizontal_rot(t_player *p, double angle);
+void			fps_count(void);
+void			move_play(void);
+void			horizontal_rot(t_player *p, double angle);
 unsigned int	get_tex_col(t_img tex, int x, int y);
 int				check_image(char *element);
-int	rev_strstr(char *str, char *find);
+int				rev_strstr(char *str, char *find);
 
 #endif

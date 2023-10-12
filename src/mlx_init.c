@@ -3,115 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:20:29 by fpereira          #+#    #+#             */
-/*   Updated: 2023/10/09 16:20:33 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:39:56 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void init_color(void)
+void	init_tex(void)
 {
-	vars()->c = -2;
-	vars()->f = -2;
-	vars()->no = NULL;
-	vars()->so = NULL;
-	vars()->ea = NULL;
-	vars()->we = NULL;
-}
+	int	i;
 
-void	define_dir_values(void)
-{
-	if (vars()->st_dir == 'N')
-	{
-		vars()->play->dir_x = 0;
-		vars()->play->dir_y = -1;
-		vars()->play->plane_x = -0.66;
-		vars()->play->plane_y = 0;
-	}
-	else if (vars()->st_dir == 'S')
-	{
-		vars()->play->dir_x = 0;
-		vars()->play->dir_y = 1;
-		vars()->play->plane_x = 0.66;
-		vars()->play->plane_y = 0;
-	}
-	else if (vars()->st_dir == 'E')
-	{
-		vars()->play->dir_x = 1;
-		vars()->play->dir_y = 0;
-		vars()->play->plane_x = 0;
-		vars()->play->plane_y = 0.66;
-	}
-	else if (vars()->st_dir == 'W')
-	{
-		vars()->play->dir_x = -1;
-		vars()->play->dir_y = 0;
-		vars()->play->plane_x = 0;
-		vars()->play->plane_y = -0.66;
-	}
-}
-
-void	init_keys(void)
-{
-	printf("teste\n");
-	vars()->key = (t_key *)malloc(sizeof(t_key));
-	vars()->key->d = 0;
-	vars()->key->a = 0;
-	vars()->key->w = 0;
-	vars()->key->s = 0;
-	vars()->key->left = 0;
-	vars()->key->right = 0;
-}
-
-void	init_graph()
-{
-	vars()->graph->line_height = 0;
-	vars()->graph->draw_start = 0;
-	vars()->graph->draw_end = 0;
-	vars()->graph->pitch = 0;
-	vars()->graph->wall_x = 0.0;
-	vars()->graph->tex_x = 0;
-	vars()->graph->tex_y = 0;
-	vars()->graph->step = 0.0;
-	vars()->graph->tex_pos = 0.0;
-	vars()->graph->color = 0;
-}
-
-void	init_vars(void)
-{
-	vars()->play = (t_player *)malloc(sizeof(t_player));
-	vars()->chrono = (t_time *)malloc(sizeof(t_time));
-	vars()->graph = (t_graph *)malloc(sizeof(t_graph));
-	//vars()->img = (t_img *)malloc(sizeof(t_img));
- 	find_player();
-	define_dir_values();
-	vars()->tex_i = -1;
- 	vars()->play->cam_x = 0;
- 	vars()->play->ray_d_x = 0;
- 	vars()->play->ray_d_y = 0;
- 	vars()->play->side_dist_x = 0;
- 	vars()->play->side_dist_y = 0;
- 	vars()->play->d_dist_x = 0;
- 	vars()->play->d_dist_y = 0;
- 	vars()->play->step_x = 0;
- 	vars()->play->step_y = 0;
-	vars()->play->side = 0;
- 	vars()->play->perp_wall_dist = 0;
- 	vars()->play->hit = 0;
- 	vars()->play->side = 0;
- 	vars()->play->map_x = 0;
- 	vars()->play->map_y = 0;
-	vars()->chrono->time = 0;
-	vars()->chrono->old_time = 0;
-	init_graph();
-}
-void init_tex(void)
-{
-	int i;
-	
 	i = 0;
 	while (i <= 3)
 	{
@@ -123,15 +27,13 @@ void init_tex(void)
 		vars()->tex[i].endian = 0;
 		i++;
 	}
-
 }
 
-void load_tex(void)
+void	load_tex(void)
 {
 	init_tex();
 	vars()->tex[0].img = mlx_xpm_file_to_image(vars()->mlx, vars()->no,
 		&vars()->tex[0].wid, &vars()->tex[0].hei);
-	printf("%s %p\n", vars()->no, vars()->tex[0].img);
 	vars()->tex[0].addr = mlx_get_data_addr(vars()->tex[0].img,
 		&vars()->tex[0].bits_per_pixel, &vars()->tex[0].line_length, &vars()->tex[0].endian);
 	vars()->tex[1].img = mlx_xpm_file_to_image(vars()->mlx, vars()->so,
@@ -151,11 +53,13 @@ void load_tex(void)
 
 void    init_cub(void)
 {
+	void	*window;
+	
 	init_vars();
 	init_keys();
-	// load_imgs();
 	vars()->img = (t_img *)malloc(sizeof(t_img));
     vars()->mlx = mlx_init();
 	load_tex();
-    vars()->window = mlx_new_window(vars()->mlx, WIN_WID, WIN_HEI, "Cub3D");
+	window = mlx_new_window(vars()->mlx, WIN_WID, WIN_HEI, "Cub3D");
+    vars()->window = window;
 }

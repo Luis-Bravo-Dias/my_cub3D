@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_data2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:39:20 by fpereira          #+#    #+#             */
-/*   Updated: 2023/10/09 15:22:53 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:35:38 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,24 @@ int	check_image(char *element)
 	if (fd < 0)
 		return (1);
 	close(fd);
+	return (0);
+}
+
+void	initialize_matrix(char **tmp)
+{
+	int	i;
+
+	i = -1;
+	printf("Lines: %d\n", vars()->lines);
+	if (vars()->lines == 0)
+		tmp[0] = NULL;
+	while (++i <= vars()->lines)
+		tmp[i] = NULL;
+}
+int	is_not_alright(void)
+{
+	if (vars()->no == NULL || vars()->so == NULL || vars()->we == NULL
+		|| vars()->ea == NULL || vars()->f < 0 || vars()->c < 0)
+		return (msg_error("\e[1;91mError\nwrong number of elements\n\e[0m"));
 	return (0);
 }

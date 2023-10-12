@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+         #
+#    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 12:06:25 by lleiria-          #+#    #+#              #
-#    Updated: 2023/10/11 17:28:10 by fpereira         ###   ########.fr        #
+#    Updated: 2023/10/12 17:36:27 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,14 @@ INCLUDE		=	-I cub3d.h
 SRCS_		=	main.c \
 				exit.c \
 				sort_data.c \
+				sort_data2.c \
+				get_color.c \
 				mlx_init.c\
+				init_play.c \
+				init_vars.c \
 				movement/keys.c movement/wasd.c \
 				raycasting/raycast.c raycasting/draw_simple.c raycasting/draw_tex.c\
-				checks/check_map.c checks/parsing_utils.c checks/check_map_utils.c\
-				sort_data2.c
+				checks/check_map.c checks/parsing_utils.c checks/check_map_utils.c
 
 SRCS		=	$(addprefix $(_SRC), $(SRCS_))
 

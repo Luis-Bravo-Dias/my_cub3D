@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:12:18 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/11 17:59:16 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:05:27 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ int	rev_strstr_argv(char *str, char *find)
 	return (0);
 }
 
+void	hooks(void)
+{
+	mlx_hook(vars()->window, 17, 0, ft_close, NULL);
+	mlx_hook(vars()->window, 2, 1L << 0, key_press, NULL);
+	mlx_hook(vars()->window, 3, 1L << 1, key_release, NULL);
+}
+
 int	main(int ac, char **av)
 {
 	if (ac != 2)
@@ -64,12 +71,11 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	init_cub();
-	printf("%#000000x %d %d %d\n", get_tex_col(vars()->tex[0], 0, 0), vars()->tex[0].bits_per_pixel, vars()->tex[0].endian, vars()->tex[0].line_length);
-	mlx_hook(vars()->window, 17, 0, ft_close, NULL);
-	mlx_hook(vars()->window, 2, 1L << 0, key_press, NULL);
-	mlx_hook(vars()->window, 3, 1L << 1, key_release, NULL);
+	printf("%#000000x %d %d %d\n", get_tex_col(vars()->tex[0], 0, 0),
+		vars()->tex[0].bits_per_pixel, vars()->tex[0].endian,
+		vars()->tex[0].line_length);
+	hooks();
 	raycast_main();
 	mlx_loop(vars()->mlx);
-	//liberate();
 	return (0);
 }
