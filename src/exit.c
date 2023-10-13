@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 11:03:46 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/11 17:04:56 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:30:25 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,7 @@ void	free_matrix(char **matrix)
 	}
 }
 
-int	msg_error(char *message)
-{
-	ft_putendl_fd(message, 2);
-	return (1);
-}
-
-void free_map(void)
+void	free_map(void)
 {
 	int	i;
 
@@ -50,7 +44,7 @@ void free_map(void)
 	free(vars()->map);
 }
 
-void free_elements(void)
+void	free_elements(void)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/12 17:36:08 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:33:42 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,8 +189,10 @@ void			my_mlx_pixel_put(int x, int y, int color);
 //draw_textured.c
 void			start_draw_tex(int x, int color);
 
-//exit.c
+//error.c
 int				msg_error(char *message);
+
+//exit.c
 void			free_matrix(char **matrix);
 void			free_array(char *str);
 

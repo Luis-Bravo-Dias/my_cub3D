@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:39:20 by fpereira          #+#    #+#             */
-/*   Updated: 2023/10/12 16:35:38 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:25:54 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	check_image(char *element)
 {
 	int		fd;
 	char	*tmp;
-	
+
 	tmp = ft_strchr(element, ' ');
 	tmp++;
 	if (rev_strstr(tmp, ".xpm"))
@@ -78,6 +78,7 @@ void	initialize_matrix(char **tmp)
 	while (++i <= vars()->lines)
 		tmp[i] = NULL;
 }
+
 int	is_not_alright(void)
 {
 	if (vars()->no == NULL || vars()->so == NULL || vars()->we == NULL
