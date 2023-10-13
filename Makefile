@@ -23,6 +23,7 @@ SRCS_		=	main.c \
 				exit.c \
 				sort_data.c \
 				sort_data2.c \
+				sort_data3.c \
 				get_color.c \
 				mlx_init.c\
 				init_play.c \
