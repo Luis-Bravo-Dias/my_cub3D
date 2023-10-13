@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/13 12:33:42 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/13 16:39:55 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,7 +186,11 @@ void			put_stripe(int x, int color);
 void			start_draw(int x, int side);
 void			my_mlx_pixel_put(int x, int y, int color);
 
-//draw_textured.c
+//draw_tex_utils.c
+int				select_wall(int side);
+void			tex_coord(int x, int side, t_input	*vars);
+
+//draw_tex.c
 void			start_draw_tex(int x, int color);
 
 //error.c

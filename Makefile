@@ -6,7 +6,7 @@
 #    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 12:06:25 by lleiria-          #+#    #+#              #
-#    Updated: 2023/10/13 12:38:24 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/10/13 16:42:15 by lleiria-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRCS_		=	main.c \
 				init_vars.c \
 				error.c \
 				movement/keys.c movement/wasd.c \
-				raycasting/raycast.c raycasting/draw_simple.c raycasting/draw_tex.c\
+				raycasting/raycast.c raycasting/draw_simple.c raycasting/draw_tex.c raycasting/draw_tex_utils.c\
 				checks/check_map.c checks/parsing_utils.c checks/check_map_utils.c
 
 SRCS		=	$(addprefix $(_SRC), $(SRCS_))

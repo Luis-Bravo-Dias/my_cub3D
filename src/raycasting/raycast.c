@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:18:49 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/04 15:10:32 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:14:48 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,15 @@ void	raycast_main(void)
 	mlx_destroy_image(vars()->mlx, vars()->img->img);
 }
 
-void	raycast(int x)
+void	set_positions(int x)
 {
-	int	hit;
-	int	side;
-
-	//posição da câmera em relação à coluna atual da tela
 	vars()->play->cam_x = 2 * x / (double)WIN_WID - 1;
-	//ray_d_x e ray_d_y calculam as direções dos raios lançados a partir da câmera
 	vars()->play->ray_d_x = -vars()->play->dir_x - vars()->play->plane_x \
 		* vars()->play->cam_x;
 	vars()->play->ray_d_y = vars()->play->dir_y + vars()->play->plane_y \
 		* vars()->play->cam_x;
-	//map_x e map_y representam a posição do jogador no mapa do jogo.
 	vars()->play->map_x = (int)vars()->play->pos_x;
 	vars()->play->map_y = (int)vars()->play->pos_y;
-	//As distâncias vars()->play->d_dist_x e vars()->play->d_dist_y são calculadas
-	//para representar a distância entre as interseções dos raios com as paredes em cada eixo.
 	if (vars()->play->ray_d_x == 0)
 		vars()->play->d_dist_x = DBL_MAX;
 	else
@@ -56,9 +48,36 @@ void	raycast(int x)
 		vars()->play->d_dist_y = DBL_MAX;
 	else
 		vars()->play->d_dist_y = fabs(1 / vars()->play->ray_d_y);
+}
+
+int	hitter(void)
+{
+	int	hit;
+	int side;
+	
 	hit = 0;
-	//As próximas seções do código calculam a direção e o passo do raio, bem como
-	//as distâncias até a próxima interseção em ambos os eixos
+	while (hit == 0)
+	{
+		if (vars()->play->side_dist_x < vars()->play->side_dist_y)
+		{
+			vars()->play->side_dist_x += vars()->play->d_dist_x;
+			vars()->play->map_x += vars()->play->step_x;
+			side = 0;
+		}
+		else
+		{
+			vars()->play->side_dist_y += vars()->play->d_dist_y;
+			vars()->play->map_y += vars()->play->step_y;
+			side = 1;
+		}
+		if (vars()->map[vars()->play->map_y][vars()->play->map_x] == '1')
+			hit = 1;
+	}
+	return (side);
+}
+
+int	ray_calculation(void)
+{
 	if (vars()->play->ray_d_x < 0)
 	{
 		vars()->play->step_x = -1;
@@ -83,27 +102,15 @@ void	raycast(int x)
 		vars()->play->side_dist_y = (vars()->play->map_y + 1.0 \
 			- vars()->play->pos_y) * vars()->play->d_dist_y;
 	}
-	//O loop while é usado para seguir o raio até que ele atinja uma parede (hit == 1). Durante cada iteração,
-	//verifica-se se a próxima interseção ocorre no eixo X ou Y e atualiza as coordenadas de acordo.
-	while (hit == 0)
-	{
-		if (vars()->play->side_dist_x < vars()->play->side_dist_y)
-		{
-			vars()->play->side_dist_x += vars()->play->d_dist_x;
-			vars()->play->map_x += vars()->play->step_x;
-			side = 0;
-		}
-		else
-		{
-			vars()->play->side_dist_y += vars()->play->d_dist_y;
-			vars()->play->map_y += vars()->play->step_y;
-			side = 1;
-		}
-		if (vars()->map[vars()->play->map_y][vars()->play->map_x] == '1')
-			hit = 1;
-	}
-	//o raio atinge uma parede, a distância perpendicular até a parede (vars()->play->perp_wall_dist)
-	//é calculada com base na fórmula de distância perpendicular.
+	return (hitter());
+}
+
+void	raycast(int x)
+{
+	int	side;
+
+	set_positions(x);
+	side = ray_calculation();
 	if (side == 0)
 		vars()->play->perp_wall_dist = (vars()->play->map_x \
 			- vars()->play->pos_x + (1 - vars()->play->step_x) / 2) \
