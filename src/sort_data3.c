@@ -12,7 +12,7 @@ int	sort_data(char *file)
 	initialize_matrix(tmp);
 	map_line = get_next_line(fd);
 	tmp = sort_loop(map_line, tmp, fd);
-	if (six_elems != 6)
+	if (vars()->six_elems != 6)
 	{
 		if (map_line)
 			free(map_line);
@@ -59,16 +59,14 @@ void    **assign_tmp(char ***tmp, int i, char *map_line, int map_flag)
 char    **sort_loop(char *map_line, char **tmp, int fd, int i)
 {
     int map_flag;
-    int six_elems;
     int i;
 
     i = -1;
     map_flag = 0;
-    six_elems = 0;
     while (map_line)
 	{
 		map_flag = sort_checks(map_line, 1);
-		six_elems += sort_checks(map_line, 2);
+		vars()->six_elems += sort_checks(map_line, 2);
 		if (sort_checks(map_line, 3) == 1)
 			if (check_image(map_line))
 			{
@@ -81,4 +79,5 @@ char    **sort_loop(char *map_line, char **tmp, int fd, int i)
 		free(map_line);
 		map_line = get_next_line(fd);
 	}
+	return (tmp);
 }

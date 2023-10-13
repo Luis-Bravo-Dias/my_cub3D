@@ -149,6 +149,7 @@ typedef struct s_input
 	int			tex_i;
 	int			f;
 	int			c;
+	int			six_elems;
 	char		**map;
 	int			lines;
 	void		*mlx;
@@ -207,11 +208,26 @@ int				not_solo(void);
 void			check_file(char *file);
 
 //sort_data.c
-int				sort_data(char *file);
 void			find_player(void);
 int				is_not_alright(void);
 void			initialize_matrix(char **tmp);
+int				is_element(char *element);
+int				check_elems(char **tmp);
+int				put_elems(char **tmp);
+
+//sort_data2.c
+void			initialize_matrix(char **tmp);
+int				rev_strstr(char *str, char *find);
+char			*ft_strdupcub(const char *s1);
+int				check_image(char *element);
 int				is_not_alright(void);
+
+
+//sort_data3.c
+int				sort_data(char *file);
+int				sort_checks(char *map_line, int option);
+void			**assign_tmp(char ***tmp, int i, char *map_line, int map_flag);
+char			**sort_loop(char *map_line, char **tmp, int fd, int i);
 
 //get_color.c
 int	get_color(char **rgb);

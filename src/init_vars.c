@@ -73,5 +73,6 @@ void	init_vars(void)
 	vars()->play->map_y = 0;
 	vars()->chrono->time = 0;
 	vars()->chrono->old_time = 0;
+	vars()->six_elems = 0;
 	init_graph();
 }
