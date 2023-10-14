@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/13 16:39:55 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/14 14:43:44 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,7 +178,7 @@ typedef struct s_input
 
 t_input			*vars(void);
 //raycast.c
-void			raycast_main(void);
+void			raycast_main(t_input *vars);
 void			raycast(int x);
 
 //draw_simple.c
@@ -218,7 +218,7 @@ void			initialize_matrix(char **tmp);
 int				is_not_alright(void);
 
 //get_color.c
-int	get_color(char **rgb);
+int				get_color(char **rgb);
 
 //parsing_utils.c
 int				matrix_size(char **matrix);
@@ -226,7 +226,7 @@ char			*ft_strdup_cub(const char *s1, int map_flag);
 int				file_lines(char *file);
 
 //init_play.c
-void	define_dir_values(void);
+void			define_dir_values(void);
 
 //init_vars.c
 void			init_vars(void);
@@ -241,12 +241,6 @@ void			define_dir_values(void);
 int				ft_close(void);
 int				key_press(int keycode);
 int				key_release(int keycode);
-// void			rotate(int dir);
-// void 			lets_move(int ws, int ad);
-// void	move_fwd(void);
-// void	move_bwd(void);
-// void	move_lsw(void);
-// void	move_rsw(void);
 void			fps_count(void);
 void			move_play(void);
 void			horizontal_rot(t_player *p, double angle);

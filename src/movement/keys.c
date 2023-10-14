@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 22:29:17 by nvideira          #+#    #+#             */
-/*   Updated: 2023/10/13 15:14:26 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/14 14:33:54 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	key_press(int keycode)
 		vars()->key->left = 1;
 	else if (keycode == RIGHT_KEY)
 		vars()->key->right = 1;
-	raycast_main();
+	raycast_main(vars());
 	return (0);
 }
 

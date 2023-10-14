@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:12:18 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/13 11:21:56 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/14 14:33:38 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int ac, char **av)
 	mlx_hook(vars()->window, 17, 0, ft_close, NULL);
 	mlx_hook(vars()->window, 2, 1L << 0, key_press, NULL);
 	mlx_hook(vars()->window, 3, 1L << 1, key_release, NULL);
-	raycast_main();
+	raycast_main(vars());
 	mlx_loop(vars()->mlx);
 	return (0);
 }

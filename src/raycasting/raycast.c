@@ -6,29 +6,31 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:18:49 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/13 17:14:48 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/14 14:38:53 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-void	raycast_main(void)
+void	raycast_main(t_input *vars)
 {
 	int	x;
 
 	x = 0;
 	move_play();
-	horizontal_rot(vars()->play, (vars()->key->left * 0.04) - (vars()->key->right * 0.04));
-	vars()->img->img = mlx_new_image(vars()->mlx, WIN_WID, WIN_HEI);
-	vars()->img->addr = mlx_get_data_addr(vars()->img->img,	&vars()->img->bits_per_pixel, &vars()->img->line_length, &vars()->img->endian);
+	horizontal_rot(vars->play, (vars->key->left * 0.04) \
+		- (vars->key->right * 0.04));
+	vars->img->img = mlx_new_image(vars->mlx, WIN_WID, WIN_HEI);
+	vars->img->addr = mlx_get_data_addr(vars->img->img, \
+		&vars->img->bits_per_pixel, &vars->img->line_length, \
+		&vars->img->endian);
 	while (x < WIN_WID)
 	{
 		raycast(x);
 		x++;
 	}
-	mlx_put_image_to_window(vars()->mlx, vars()->window, vars()->img->img, 0,
-		0);
-	mlx_destroy_image(vars()->mlx, vars()->img->img);
+	mlx_put_image_to_window(vars->mlx, vars->window, vars->img->img, 0, 0);
+	mlx_destroy_image(vars->mlx, vars->img->img);
 }
 
 void	set_positions(int x)
@@ -53,8 +55,8 @@ void	set_positions(int x)
 int	hitter(void)
 {
 	int	hit;
-	int side;
-	
+	int	side;
+
 	hit = 0;
 	while (hit == 0)
 	{
@@ -122,4 +124,3 @@ void	raycast(int x)
 	fps_count();
 	start_draw_tex(x, side);
 }
-
