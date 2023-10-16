@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/16 16:06:08 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/16 16:58:31 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # include <math.h>
 # include <ctype.h>
 # include <limits.h>
-# include <float.h>
 # include <stdint.h>
 
 # include "libft/libft.h"
@@ -69,6 +68,8 @@
 # define DARK_RED 0x800000
 # define DARK_YELLOW 0x808000
 # define DARK_PURPLE 0x800080
+
+#define	DBL_MAX 1.79769e+308
 
 typedef struct s_player
 {
