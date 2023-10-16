@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 16:37:38 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/13 16:40:00 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:37:10 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ void	tex_coord(int x, int side, t_input	*vars)
 {
 	int	y;
 
+	if (vars->st_dir == 'N' || vars->st_dir == 'S')
+		x = WIN_WID - x;
+	printf("x = %d\n", x);
 	x_of_tex(vars, side);
 	y = 0;
 	while (y < vars->graph->draw_start)
