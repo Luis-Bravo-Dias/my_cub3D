@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/13 12:33:42 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/16 15:25:07 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,7 +211,7 @@ void			check_file(char *file);
 void			find_player(void);
 int				is_not_alright(void);
 void			initialize_matrix(char **tmp);
-int				is_element(char *element);
+void			is_element(char *element);
 int				check_elems(char **tmp);
 int				put_elems(char **tmp);
 
@@ -226,8 +226,8 @@ int				is_not_alright(void);
 //sort_data3.c
 int				sort_data(char *file);
 int				sort_checks(char *map_line, int option);
-void			**assign_tmp(char ***tmp, int i, char *map_line, int map_flag);
-char			**sort_loop(char *map_line, char **tmp, int fd, int i);
+void			assign_tmp(char ***tmp, int i, char *map_line, int map_flag);
+char			**sort_loop(char *map_line, char **tmp, int fd);
 
 //get_color.c
 int	get_color(char **rgb);
