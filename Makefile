@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+         #
+#    By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 12:06:25 by lleiria-          #+#    #+#              #
-#    Updated: 2023/10/13 16:42:15 by lleiria-         ###   ########.fr        #
+#    Updated: 2023/10/16 16:06:17 by fpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS_		=	main.c \
 				exit.c \
 				sort_data.c \
 				sort_data2.c \
+				sort_data3.c \
 				get_color.c \
 				mlx_init.c\
 				init_play.c \

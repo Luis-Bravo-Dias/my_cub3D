@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:09:34 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/12 16:39:39 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/16 16:05:20 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,67 +75,32 @@ int	put_elems(char **tmp)
 	return (check_elems(tmp));
 }
 
-int	sort_data(char *file)
+int	sort_data(char *file, int i, int map_flag)
 {
 	int		fd;
-	int		i;
-	int		six_elems;
-	int		map_flag;
 	char	**tmp;
 	char	*map_line;
 
-	six_elems = 0;
-	map_flag = 0;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (msg_error("\e[1;91mError\nCould not open file.\n\e[0m"));
 	vars()->lines = file_lines(file);
 	tmp = malloc(sizeof(char *) * (vars()->lines + 1));
 	initialize_matrix(tmp);
-	i = -1;
 	map_line = get_next_line(fd);
 	while (map_line)
 	{
-		if (map_line[0] && (map_line[0] == 1 || map_line[0] == 0
-				|| map_line[0] == ' ' || map_line[0] == '\t'))
-			map_flag = 1;
-		if (map_line[0] != '1' && map_line[0] != '0' && map_line[0] != '\n')
-			if (map_line[0] == 'N' || map_line[0] == 'S'
-				|| map_line[0] == 'W' || map_line[0] == 'E'
-				|| map_line[0] == 'F' || map_line[0] == 'C')
-				six_elems++;
-		if (map_line[0] == 'N' || map_line[0] == 'S'
-			|| map_line[0] == 'W' || map_line[0] == 'E')
-		{
+		map_flag = sort_checks(map_line[0], 1);
+		if (sort_checks(map_line[0], 2))
 			if (check_image(map_line))
-			{
-				if (map_line)
-					free(map_line);
-				free_matrix(tmp);
-				return (msg_error("\e[1;91mError\nInvalid images.\n\e[0m"));
-			}
-		}
-		if (map_flag == 1 && vars()->lines > 0)
-		{
-			tmp[++i] = ft_strdup_cub(map_line, map_flag);
-			vars()->lines--;
-		}
-		else if (map_line[0] != '\n' && vars()->lines > 0)
-		{
-			tmp[++i] = ft_strdup_cub(map_line, map_flag);
-			vars()->lines--;
-		}
+				return (invalid_image_case(map_line, tmp));
+		if ((map_flag == 1 || map_line[0] != '\n') && vars()->lines > 0)
+			tmp[++i] = assign_dup(map_line, map_flag);
 		free(map_line);
 		map_line = get_next_line(fd);
 	}
-	if (six_elems != 6)
-	{
-		if (map_line)
-			free(map_line);
-		if (tmp)
-			free_matrix(tmp);
-		return (msg_error("\e[1;91mError\nWrong number of elements\n\e[0m"));
-	}
+	if (sort_check_elems(map_line, tmp))
+		return (1);
 	return (put_elems(tmp));
 }
 

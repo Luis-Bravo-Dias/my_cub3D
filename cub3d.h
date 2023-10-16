@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/14 14:43:44 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/16 16:06:08 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,7 @@ typedef struct s_input
 	int			tex_i;
 	int			f;
 	int			c;
+	int			six_elems;
 	char		**map;
 	int			lines;
 	void		*mlx;
@@ -211,11 +212,17 @@ int				not_solo(void);
 void			check_file(char *file);
 
 //sort_data.c
-int				sort_data(char *file);
+int				sort_data(char *file, int i, int map_flag);
 void			find_player(void);
 int				is_not_alright(void);
 void			initialize_matrix(char **tmp);
 int				is_not_alright(void);
+
+//sort_data3.c
+int				sort_checks(char map_line, int option);
+int				sort_check_elems(char *map_line, char **tmp);
+char			*assign_dup(char *map_line, int map_flag);
+int				invalid_image_case(char *map_line, char **tmp);
 
 //get_color.c
 int				get_color(char **rgb);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_vars.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 17:33:23 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/13 12:26:21 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/16 15:46:21 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void	init_vars(void)
 	vars()->play->map_y = 0;
 	vars()->chrono->time = 0;
 	vars()->chrono->old_time = 0;
+	vars()->six_elems = 0;
 	init_graph();
 }
