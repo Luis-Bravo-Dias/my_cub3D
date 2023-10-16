@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 12:40:43 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/16 18:40:26 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:46:37 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	move_play(void)
 		+ new_dir_x)] == '0')
 		vars()->play->pos_x += new_dir_x;
 	if (vars()->map[(int)(vars()->play->pos_y \
-		+ vars()->play->dir_y)][(int)(vars()->play->pos_x)] == '0')
+		+ new_dir_y)][(int)(vars()->play->pos_x)] == '0')
 		vars()->play->pos_y += new_dir_y;
 }
 

@@ -6,7 +6,7 @@
 /*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 16:37:38 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/16 18:37:10 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:59:04 by lleiria-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,15 @@ void	tex_coord(int x, int side, t_input	*vars)
 	int	y;
 
 	if (vars->st_dir == 'N' || vars->st_dir == 'S')
-		x = WIN_WID - x;
+		x = WIN_WID - x - 1;
 	printf("x = %d\n", x);
 	x_of_tex(vars, side);
 	y = 0;
 	while (y < vars->graph->draw_start)
 	{
-		my_mlx_pixel_put(x, y, vars->c);
+		// printf("trying to put a pixel at x[%d]y[%d]\n", x, y);
+		// if (x > -1 && x < WIN_WID && y > -1 && y < WIN_HEI)
+			my_mlx_pixel_put(x, y, vars->c);
 		y++;
 	}
 	while (y < vars->graph->draw_end)
