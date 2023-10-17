@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:44:45 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/13 15:08:47 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/17 15:53:13 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ int	matrix_size(char **matrix)
 	return (counter);
 }
 
-char	*ft_strdup_cub(const char *s1, int map_flag)
+char	*ft_strdup_cub(const char *s1, int map_flag, int n)
 {
 	char	*p;
-	size_t	n;
 
 	p = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
-	n = 0;
 	if (p == NULL)
 		return (NULL);
 	if (map_flag == 0)

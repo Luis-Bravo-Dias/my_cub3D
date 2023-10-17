@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:09:34 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/16 18:19:55 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:09:43 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	check_elems(char **tmp)
 	vars()->lines = matrix_size(tmp) - 6;
 	while (++i <= 5)
 		is_element(tmp[i]);
+	i = -1;
+	i = 6;
 	if (is_not_alright())
 	{
 		free_matrix(tmp);
@@ -88,18 +90,18 @@ int	sort_data(char *file, int i, int map_flag)
 	tmp = malloc(sizeof(char *) * (vars()->lines + 1));
 	initialize_matrix(tmp);
 	map_line = get_next_line(fd);
-	while (map_line)
+	while (map_line && map_flag != 2)
 	{
-		map_flag = sort_checks(map_line[0], 1);
-		if (sort_checks(map_line[0], 2))
+		map_flag = sort_checks(map_line[0], 1, map_flag);
+		if (sort_checks(map_line[0], 2, map_flag))
 			if (check_image(map_line))
 				return (invalid_image_case(map_line, tmp));
 		if ((map_flag == 1 || map_line[0] != '\n') && vars()->lines > 0)
-			tmp[++i] = assign_dup(map_line, map_flag);
+			tmp[++i] = assign_dup(map_line, map_flag, tmp);
 		free(map_line);
 		map_line = get_next_line(fd);
 	}
-	if (sort_check_elems(map_line, tmp))
+	if (sort_check_elems(map_line, tmp, map_flag))
 		return (1);
 	return (put_elems(tmp));
 }

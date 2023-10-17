@@ -6,7 +6,7 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 11:05:01 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/11 17:27:49 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:16:13 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	check_borders(char **map, int y, int x)
 
 int	check_inside(char **map, int y, int x)
 {
-	if (map[y][0] == '\n')
+	if (map[y][0] == '\n' || map[y][0] == '\0')
 		return (1);
 	if (x <= 1 || x >= (int)ft_strlen(map[y]) - 2)
 		return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/16 18:15:56 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:17:16 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@
 # define DARK_YELLOW 0x808000
 # define DARK_PURPLE 0x800080
 
-#define	DBL_MAX 1.79769e+308
+# define DBL_MAX 1.79769e+308
 
 typedef struct s_player
 {
@@ -221,9 +221,9 @@ void			initialize_matrix(char **tmp);
 int				is_not_alright(void);
 
 //sort_data3.c
-int				sort_checks(char map_line, int option);
-int				sort_check_elems(char *map_line, char **tmp);
-char			*assign_dup(char *map_line, int map_flag);
+int				sort_checks(char map_line, int option, int map_flag);
+int				sort_check_elems(char *map_line, char **tmp, int map_flag);
+char			*assign_dup(char *map_line, int map_flag, char **tmp);
 int				invalid_image_case(char *map_line, char **tmp);
 
 //get_color.c
@@ -231,7 +231,7 @@ int				get_color(char **rgb);
 
 //parsing_utils.c
 int				matrix_size(char **matrix);
-char			*ft_strdup_cub(const char *s1, int map_flag);
+char			*ft_strdup_cub(const char *s1, int map_flag, int n);
 int				file_lines(char *file);
 
 //init_play.c
@@ -239,6 +239,7 @@ void			define_dir_values(void);
 
 //init_vars.c
 void			init_vars(void);
+void			init_vars2(void);
 void			init_color(void);
 void			init_keys(void);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_vars.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 17:33:23 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/16 18:22:58 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:15:16 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	init_color(void)
 
 void	init_keys(void)
 {
-	printf("teste\n");
 	vars()->key = (t_key *)malloc(sizeof(t_key));
 	vars()->key->d = 0;
 	vars()->key->a = 0;
@@ -65,6 +64,12 @@ void	init_vars(void)
 	vars()->play->d_dist_y = 0;
 	vars()->play->step_x = 0;
 	vars()->play->step_y = 0;
+	init_vars2();
+	init_graph();
+}
+
+void	init_vars2(void)
+{
 	vars()->play->side = 0;
 	vars()->play->perp_wall_dist = 0;
 	vars()->play->hit = 0;
@@ -75,5 +80,4 @@ void	init_vars(void)
 	vars()->chrono->old_time = 0;
 	vars()->six_elems = 0;
 	vars()->player_side = 0;
-	init_graph();
 }

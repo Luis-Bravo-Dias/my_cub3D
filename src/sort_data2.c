@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_data2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lleiria- <lleiria-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:39:20 by fpereira          #+#    #+#             */
-/*   Updated: 2023/10/13 12:25:54 by lleiria-         ###   ########.fr       */
+/*   Updated: 2023/10/17 16:11:12 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void	initialize_matrix(char **tmp)
 	int	i;
 
 	i = -1;
-	printf("Lines: %d\n", vars()->lines);
 	if (vars()->lines == 0)
 		tmp[0] = NULL;
 	while (++i <= vars()->lines)
