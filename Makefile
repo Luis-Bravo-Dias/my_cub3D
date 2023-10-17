@@ -6,20 +6,53 @@
 #    By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/13 12:06:25 by lleiria-          #+#    #+#              #
-#    Updated: 2023/10/17 15:51:12 by fpereira         ###   ########.fr        #
+#    Updated: 2023/10/17 16:59:30 by fpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g #-fsanitize=address
-#MLXFLAGS	= -lmlx -framework OpenGL -framework AppKit
-RM			= rm -f
+CC			=	cc
+CFLAGS		=	-Wall -Wextra -Werror -g #-fsanitize=address 
+RM			=	rm -f
 
 NAME		=	cub3D
 
-DEPS		=	libft/libft.a get_next_line/get_next_line.a
-INCLUDE		=	-I cub3d.h
-SRCS_		=	main.c \
+INCLUDE		=	-I ./ mlx_linux/libmlx_Linux.a
+
+SRCS_		=	libft/ft_bzero.c\
+				libft/ft_calloc.c\
+				libft/ft_isalnum.c\
+				libft/ft_isalpha.c\
+				libft/ft_isascii.c\
+				libft/ft_isdigit.c\
+				libft/ft_isprint.c\
+				libft/ft_memchr.c\
+				libft/ft_memcmp.c\
+				libft/ft_memcpy.c\
+				libft/ft_memmove.c\
+				libft/ft_memset.c\
+				libft/ft_strchr.c\
+				libft/ft_strlcat.c\
+				libft/ft_strlcpy.c\
+				libft/ft_strlen.c\
+				libft/ft_strncmp.c\
+				libft/ft_strnstr.c\
+				libft/ft_strrchr.c\
+				libft/ft_tolower.c\
+				libft/ft_toupper.c\
+				libft/ft_atoi.c\
+				libft/ft_strdup.c\
+				libft/ft_substr.c\
+				libft/ft_putchar_fd.c\
+				libft/ft_putstr_fd.c\
+				libft/ft_putnbr_fd.c\
+				libft/ft_putendl_fd.c\
+				libft/ft_strjoin.c\
+				libft/ft_strtrim.c\
+				libft/ft_split.c\
+				libft/ft_itoa.c\
+				libft/ft_striteri.c\
+				libft/ft_strmapi.c\
+				main.c \
 				exit.c \
 				sort_data.c \
 				sort_data2.c \
@@ -29,48 +62,40 @@ SRCS_		=	main.c \
 				init_play.c \
 				init_vars.c \
 				error.c \
+				get_next_line.c \
+				get_next_line_utils.c \
 				movement/keys.c movement/wasd.c \
 				raycasting/raycast.c raycasting/draw_simple.c raycasting/draw_tex.c raycasting/draw_tex_utils.c\
 				checks/check_map.c checks/parsing_utils.c checks/check_map_utils.c
 
 SRCS		=	$(addprefix $(_SRC), $(SRCS_))
 
-_OBJ		=	./obj/
-_SRC		= 	./src/
-OBJS		=	$(patsubst $(_SRC)%.c, $(_OBJ)%.o, $(SRCS))
+DEPS		=	./mlx_linux/libmlx_Linux.a
 
-all:		$(NAME)
+_SRC		=	./src/
+_MLX		=	./mlx_linux
+
+OBJS		=	$(patsubst %.c, %.o, $(SRCS))
+all:	$(NAME)
 
 $(_OBJ)%.o: $(_SRC)%.c
 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
-	
-$(NAME): $(DEPS) $(_OBJ) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -lmlx_Linux -Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(DEPS)
 
-#bonus:		$(SRCS_B) $(OBJS_B)
-#			$(CC) $(CFLAGS) $(SRCS_B) -o $(NAME_B)
-#			$(CC) $(CFLAGS) $(SRCS_B) -c
+$(NAME): $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -Lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz $(OBJS) -o $(NAME) $(INCLUDE) -L $(_MLX)
 
-libft/libft.a:
-	make libft.a -C libft
-
-get_next_line/get_next_line.a:
-	make get_next_line.a -C get_next_line
+./mlx_linux/libmlx_Linux.a:
+	cd mlx_linux;./configure
 
 $(_OBJ):
 	mkdir $@
-	mkdir $(_OBJ)checks
-	mkdir $(_OBJ)raycasting
-	mkdir $(_OBJ)movement
 
 clean:
-	make clean -C libft
-	make clean -C get_next_line
-	$(RM) -r $(_OBJ)
+	$(RM) -r $(OBJS)
+	cd mlx_linux; make clean
 
 fclean:	clean
-	make fclean -C libft
-	make fclean -C get_next_line
-	$(RM) $(NAME)
+	$(RM) -r $(NAME)
+	$(RM) -r $(_MLX)libmlx_Linux.a
 
 re:	fclean all

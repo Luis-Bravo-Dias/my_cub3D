@@ -6,11 +6,11 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 16:37:38 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/17 16:13:00 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/17 17:02:40 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../cub3d.h"
 
 unsigned int	get_tex_col(t_img tex, int x, int y)
 {
@@ -82,9 +82,9 @@ int	select_wall(int side)
 	if (side == 0)
 	{
 		if (vars()->play->ray_d_x < 0)
-			return (2);
-		else
 			return (3);
+		else
+			return (2);
 	}
 	else
 	{

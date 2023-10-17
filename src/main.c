@@ -6,11 +6,11 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:12:18 by ubuntu            #+#    #+#             */
-/*   Updated: 2023/10/16 15:44:42 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/17 17:02:40 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "cub3d.h"
 
 t_input	*vars(void)
 {

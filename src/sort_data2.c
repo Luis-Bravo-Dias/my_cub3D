@@ -6,11 +6,11 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 12:39:20 by fpereira          #+#    #+#             */
-/*   Updated: 2023/10/17 16:11:12 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/17 17:02:40 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "cub3d.h"
 
 int	rev_strstr(char *str, char *find)
 {
