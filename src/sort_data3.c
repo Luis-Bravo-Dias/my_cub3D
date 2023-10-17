@@ -6,7 +6,7 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 16:04:55 by fpereira          #+#    #+#             */
-/*   Updated: 2023/10/17 17:02:40 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/17 17:07:50 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	*assign_dup(char *map_line, int map_flag, char **tmp)
 			free_matrix(tmp);
 			free(map_line);
 			ft_putendl_fd("\e[1;91mError\nEmpty line\
-			 inside map or after.\n\e[0m", 2);
+ inside map or after.\n\e[0m", 2);
 			exit(2);
 		}
 		return (ft_strdup_cub(map_line, map_flag, 0));
