@@ -6,7 +6,7 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 17:33:23 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/17 17:02:40 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/18 17:09:47 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,5 @@ void	init_vars2(void)
 	vars()->chrono->old_time = 0;
 	vars()->six_elems = 0;
 	vars()->player_side = 0;
+	vars()->fd = 0;
 }

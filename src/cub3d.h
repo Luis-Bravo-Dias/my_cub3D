@@ -6,7 +6,7 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:21 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/17 17:02:04 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/18 17:09:21 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ typedef struct s_input
 	int			c;
 	int			six_elems;
 	int			player_side;
+	int			fd;
 	char		**map;
 	int			lines;
 	void		*mlx;

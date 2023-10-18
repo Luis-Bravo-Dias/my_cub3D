@@ -6,7 +6,7 @@
 /*   By: fpereira <fpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 16:09:34 by lleiria-          #+#    #+#             */
-/*   Updated: 2023/10/17 17:02:40 by fpereira         ###   ########.fr       */
+/*   Updated: 2023/10/18 17:10:19 by fpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,17 +79,16 @@ int	put_elems(char **tmp)
 
 int	sort_data(char *file, int i, int map_flag)
 {
-	int		fd;
 	char	**tmp;
 	char	*map_line;
 
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
+	vars()->fd = open(file, O_RDONLY);
+	if (vars()->fd < 0)
 		return (msg_error("\e[1;91mError\nCould not open file.\n\e[0m"));
 	vars()->lines = file_lines(file);
 	tmp = malloc(sizeof(char *) * (vars()->lines + 1));
 	initialize_matrix(tmp);
-	map_line = get_next_line(fd);
+	map_line = get_next_line(vars()->fd);
 	while (map_line && map_flag != 2)
 	{
 		map_flag = sort_checks(map_line[0], 1, map_flag);
@@ -99,8 +98,9 @@ int	sort_data(char *file, int i, int map_flag)
 		if ((map_flag == 1 || map_line[0] != '\n') && vars()->lines > 0)
 			tmp[++i] = assign_dup(map_line, map_flag, tmp);
 		free(map_line);
-		map_line = get_next_line(fd);
+		map_line = get_next_line(vars()->fd);
 	}
+	close(vars()->fd);
 	if (sort_check_elems(map_line, tmp, map_flag))
 		return (1);
 	return (put_elems(tmp));
